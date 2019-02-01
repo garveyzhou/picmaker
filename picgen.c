@@ -12,13 +12,14 @@ int main(){
 	char * buffer = malloc(20*sizeof(char));
 	for(int i = 0; i < 500; i++){
 		for(int j = 0;j<500;j++){
-			r = i % 256;
-			g = j % 256;
-			b = (i + j) % 256;
+			r = i*10 % 256;
+			g = j*4 % 256;
+			b = (i + j)/2 % 256;
 			sprintf(buffer,"%d %d %d ",r,g,b);
 			write(file,buffer,strlen(buffer));
 		}
 	}
 	close(file);
+	free(buffer);
 }
 
